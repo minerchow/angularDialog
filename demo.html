@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js"></script>
+	<link rel="stylesheet" href="angularDialog.css">
+</head>
+<body>
+	<div class="page">
+		<!-- type传1表示类型为alert,传2表示类型为confirm -->
+		<div ng-controller="test" class="">
+			<angular-dialog title="{{angularDialogTitle}}" hide="hide" content="{{angularDialogContent}}" fun="fun()" type="2"></angular-dialog>
+			<a href="javascript:void(0)" ng-click="showDialog()">显示</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module('App', []);
+	 	app.controller("test", ["$scope", function ($scope) {
+		 	$scope.angularDialogTitle= "标题";
+		 	$scope.angularDialogContent = "这是内容";
+		 	$scope.hide = true;
+		 	$scope.fun = function(){
+		 		alert(1)
+		 	}
+		 	$scope.showDialog = function(){
+		 		$scope.hide = true;
+		 	}
+      	 }]);
+	</script>
+	<script type="text/javascript" src="angularDialog.js"></script>
+</body>
+</html>
